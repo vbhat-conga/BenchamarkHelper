@@ -1,0 +1,1 @@
+﻿if [[ -d "memtier_benchmark" ]]; then cd memtier_benchmark;echo "Directory memtier_benchmark exists.";else sudo apt-get install -y build-essential autoconf automake libpcre3-dev libevent-dev pkg-config zlib1g-dev libssl-dev;git clone https://github.com/RedisLabs/memtier_benchmark.git;cd memtier_benchmark;autoreconf -ivf;./configure;make;sudo make install;fi;

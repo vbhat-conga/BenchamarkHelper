@@ -1,0 +1,29 @@
+{
+  "authenticationMode": "UserPrompt",
+  "waitForUser": false,
+  "waitForIngestSeconds": 20,
+  "batchingPolicy": {
+    "MaximumBatchingTimeSpan": "00:00:10",
+    "MaximumNumberOfItems": 500,
+    "MaximumRawDataSizeMB": 1024
+  },
+  "kustoUri": "https://perfade.westus2.kusto.windows.net",
+  "ingestUri": "https://ingest-perfade.westus2.kusto.windows.net",
+  "databaseName": "JmeterData",
+  "tableName": "RedisBenchmark",
+  "useExistingTable": true,
+  "tableSchema": "(RunId:string, configuration:dynamic, run information:dynamic, ALL STATS:dynamic)",
+  "programmingLanguage": "C#",
+  "alterTable": false,
+  "queryData": false,
+  "ignoreFirstRecord": false,
+  "ingestData": true,
+  "data": {
+    "sourceType": "localFileSource",
+    "dataSourceUri": "",
+    "format": "multijson",
+    "useExistingMapping": false,
+    "mappingName": "RedisBenchmark_mapping",
+    "mappingValue": "[{\"column\":\"RunId\", \"Properties\":{\"Path\":\"$.[\\'ALL STATS\\'][\\'Runtime\\'][\\'Start time\\']\"}},{\"column\":\"configuration\", \"Properties\":{\"Path\":\"$[\\'configuration\\']\"}},{\"column\":\"run information\", \"Properties\":{\"Path\":\"$[\\'run information\\']\"}},{\"column\":\"ALL STATS\", \"Properties\":{\"Path\":\"$[\\'ALL STATS\\']\"}}]"
+  }
+}
